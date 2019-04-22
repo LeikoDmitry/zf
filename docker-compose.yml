@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: zf-app
+      MYSQL_USER: zend
+      MYSQL_PASSWORD: z3s4tPTGTRUS8AHn
+    volumes:
+      - ./docker/data/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  zf:
+    build: docker/apache-php
+    ports:
+      - 80:80
+    volumes:
+      - .:/var/www/zf
+      - ./docker/html/index.php:/var/www/html/index.php
+      - ./docker/data/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - ./docker/data/apache/log:/var/log/apache2
+    depends_on:
+      - db

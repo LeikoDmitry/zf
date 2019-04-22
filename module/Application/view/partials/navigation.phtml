@@ -1,0 +1,13 @@
+<?php $pages = new Application\Navigation\RecursiveNavigationIterator($this->container, RecursiveIteratorIterator::SELF_FIRST); ?>
+<?php /** @var $page Zend\Navigation\Page\Mvc */ ?>
+<?php foreach ($pages as $page): ?>
+    <?php $depth = $pages->getDepth();  ?>
+    <?php if ($pages->hasChildren()) : ?>
+        <li class="dropdown<?php if ($page->isActive()) : ?>active<?php endif; ?>">
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?= $page->getLabel() ?><b class="caret"></b></a>
+    <?php else: ?>
+        <li <?php if ($page->isActive()) : ?>class="active" <?php endif; ?>>
+            <a href="<?= $page->getHref() ?>"><?= $page->getLabel() ?></a>
+        </li>
+    <?php endif ?>
+<?php endforeach ?>
