@@ -35,6 +35,12 @@ class Navigation
      */
     private $parent;
 
+
+    /**
+     * @ORM\Column(name="created", type="datetime", nullable=rrtrue)
+     */
+    private $created;
+
     /**
      * @return mixed
      */
@@ -98,4 +104,21 @@ class Navigation
     {
         $this->parent = $parent;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param  mixed  $created
+     */
+    public function setCreated($created): void
+    {
+        $this->created = $created;
+    }
+
 }
