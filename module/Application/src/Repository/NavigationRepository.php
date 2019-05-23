@@ -2,7 +2,6 @@
 
 namespace Application\Repository;
 
-use Application\Service\Cache;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query;
 

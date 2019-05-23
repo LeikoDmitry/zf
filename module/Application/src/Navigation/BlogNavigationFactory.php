@@ -6,11 +6,8 @@ namespace Application\Navigation;
 use Application\Entity\Navigation;
 use Application\Repository\NavigationRepository;
 use Application\Service\Cache;
-use Application\Service\CacheFactory;
 use Doctrine\ORM\EntityManager;
 use Interop\Container\ContainerInterface;
-use Zend\Cache\Storage\Adapter\Apc;
-use Zend\Cache\StorageFactory;
 use Zend\Navigation\Service\AbstractNavigationFactory;
 
 

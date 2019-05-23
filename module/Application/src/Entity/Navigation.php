@@ -37,7 +37,7 @@ class Navigation
 
 
     /**
-     * @ORM\Column(name="created", type="datetime", nullable=rrtrue)
+     * @ORM\Column(name="created", type="datetime", nullable=true)
      */
     private $created;
 

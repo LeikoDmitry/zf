@@ -31,7 +31,8 @@
         "zendframework/zend-navigation": "^2.9",
         "zendframework/zend-serializer": "^2.9",
         "zendframework/zend-math": "^3.2",
-        "zendframework/zend-authentication": "^2.6"
+        "zendframework/zend-authentication": "^2.6",
+        "zendframework/zend-mvc-plugin-prg": "^1.1"
     },
     "autoload": {
         "psr-4": {

@@ -27,12 +27,12 @@ class UserController extends AbstractActionController
     /**
      * @var SessionManager
      */
-    private $session_manager;
+    private $sessionManager;
 
     /**
      * @var AnnotationBuilder
      */
-    private $form_builder;
+    private $builder;
 
     /**
      * UserController constructor.
@@ -43,8 +43,8 @@ class UserController extends AbstractActionController
     public function __construct(AuthenticationService $authenticationService, SessionManager $session_manager)
     {
         $this->authenticationService = $authenticationService;
-        $this->session_manager = $session_manager;
-        $this->form_builder = new AnnotationBuilder();
+        $this->sessionManager = $session_manager;
+        $this->builder = new AnnotationBuilder();
     }
 
     public function registerAction()
@@ -57,23 +57,32 @@ class UserController extends AbstractActionController
      */
     public function loginAction()
     {
-        $form = $this->form_builder->createForm(User::class);
-        if ($this->getRequest()->isPost()) {
-            $data = $this->getRequest()->getPost();
-            $form->setData($data);
-            $form->setValidationGroup(['email', 'password', 'csrf']);
-            if ($form->isValid()) {
-                $adapter = $this->authenticationService->getAdapter();
-                $adapter->setIdentity($data['email']);
-                $adapter->setCredential($data['password']);
-                $authResult = $this->authenticationService->authenticate();
-                if ($authResult->isValid()) {
-                    return $this->redirect()->toRoute('home');
-                }
-            }
-            return $this->redirect()->toRoute('auth');
+        $form = $this->builder->createForm(User::class);
+        $prg = $this->fileprg($form, 'login', true);
+        if ($prg instanceof \Zend\Http\PhpEnvironment\Response) {
+            return $prg;
+        } elseif ($prg === false) {
+            return new ViewModel(compact('form'));
         }
-        return new ViewModel(compact('form'));
+        $form->setValidationGroup('email', 'password', 'csrf');
+        $form->setData($prg);
+        if (! $form->isValid()) {
+            return $this->redirect()->toRoute('login');
+        }
+        $adapter = $this->authenticationService->getAdapter();
+        $adapter->setIdentity($form->getData()['email']);
+        $adapter->setCredential($form->getData()['password']);
+        $authResult = $this->authenticationService->authenticate();
+        if (! $authResult->isValid()) {
+            $form->get('email')->setMessages(['wrong' => 'Wrong Password']);
+            return $this->redirect()->toRoute('login');
+        }
+        $this->authenticationService->getStorage()->write([
+            'id' => $authResult->getIdentity()->getId(),
+            'name' => $authResult->getIdentity()->getUsername(),
+            'email' => $authResult->getIdentity()->getEmail()
+        ]);
+        return $this->redirect()->toRoute('home');
     }
 
     /**
@@ -84,8 +93,8 @@ class UserController extends AbstractActionController
         if ($this->authenticationService->hasIdentity()) {
             $this->authenticationService->clearIdentity();
         }
-        $this->session_manager->forgetMe();
-        $this->session_manager->regenerateId();
+        $this->sessionManager->forgetMe();
+        $this->sessionManager->regenerateId();
         return $this->redirect()->toRoute('auth');
     }
 

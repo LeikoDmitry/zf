@@ -2,7 +2,6 @@
 
 namespace Application;
 
-use Application\Controller\UserController;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 use Zend\Authentication\AuthenticationService;
 use Zend\Router\Http\Literal;
