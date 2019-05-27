@@ -229,3 +229,23 @@ AH00558: apache2: Could not reliably determine the server's fully qualified doma
 AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.80.3. Set the 'ServerName' directive globally to suppress this message
 [Mon May 27 06:46:24.154075 2019] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.3.4 configured -- resuming normal operations
 [Mon May 27 06:46:24.154363 2019] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon May 27 08:53:27.643790 2019] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.80.3. Set the 'ServerName' directive globally to suppress this message
+[Mon May 27 08:54:33.857927 2019] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.3.4 configured -- resuming normal operations
+[Mon May 27 08:54:33.857979 2019] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon May 27 08:57:50.483299 2019] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.80.3. Set the 'ServerName' directive globally to suppress this message
+[Mon May 27 08:58:24.253083 2019] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.3.4 configured -- resuming normal operations
+[Mon May 27 08:58:24.253132 2019] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon May 27 08:59:25.354113 2019] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+[Mon May 27 08:59:52.158208 2019] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.3.4 configured -- resuming normal operations
+[Mon May 27 08:59:52.158267 2019] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon May 27 09:00:11.241928 2019] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.3.4 configured -- resuming normal operations
+[Mon May 27 09:00:11.241980 2019] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon May 27 09:04:24.428223 2019] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+[Mon May 27 09:04:25.945604 2019] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.3.5 configured -- resuming normal operations
+[Mon May 27 09:04:25.945653 2019] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon May 27 09:04:44.527134 2019] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+[Mon May 27 09:06:18.612424 2019] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.3.5 configured -- resuming normal operations
+[Mon May 27 09:06:18.612473 2019] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon May 27 09:10:37.008881 2019] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
