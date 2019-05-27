@@ -50,7 +50,7 @@ class User
      * @Annotation\Validator({"name":"identical", "options":{"token":"password"}})
      * @Annotation\Attributes({"type":"password", "class":"form-control","required":"required"})
      */
-    private $confim_password;
+    private $confirm_password;
 
     /**
      * @var string
@@ -85,7 +85,7 @@ class User
      */
     public function __construct()
     {
-        $this->login_date = (new DateTime())->format('Y-m-d H:i:s');
+        $this->login_date = new DateTime();
     }
 
     /**
@@ -139,17 +139,17 @@ class User
     /**
      * @return string
      */
-    public function getConfimPassword(): string
+    public function getConfirmPassword(): string
     {
-        return $this->confim_password;
+        return $this->confirm_password;
     }
 
     /**
-     * @param  string  $confim_password
+     * @param  string  $confirm_password
      */
-    public function setConfimPassword(string $confim_password): void
+    public function setConfirmPassword(string $confirm_password): void
     {
-        $this->confim_password = $confim_password;
+        $this->confirm_password = $confirm_password;
     }
 
     /**

@@ -66,6 +66,16 @@ return [
                     ],
                 ],
             ],
+            'logout' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/logout',
+                    'defaults' => [
+                        'controller' => Controller\UserController::class,
+                        'action'     => 'logout',
+                    ],
+                ],
+            ],
         ],
     ],
     'controllers' => [

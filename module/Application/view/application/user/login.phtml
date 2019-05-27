@@ -1,16 +1,27 @@
 <?php $this->headTitle('Sign in');?>
 <div class="row">
-    <div class="col-md-offset-4 col-md-3">
+    <div class="col-md-offset-3 col-md-6">
         <form class="form-signin" method="post">
             <h2 class="form-signin-heading">Please sign in</h2>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div class="form-group <?php if ($this->form->get('email')->getMessages()):?>has-error has-feedback<?php endif;?>">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" class="form-control" aria-describedby="email" placeholder="Enter email">
+                <?php if ($this->form->get('email')->getMessages()) : ?>
+                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    <?php foreach ($this->form->get('email')->getMessages() as $error) : ?>
+                        <span class="help-block"><?= $error ?></span>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <div class="form-group <?php if ($this->form->get('password')->getMessages()):?>has-error has-feedback<?php endif;?>">
+                <label for="password">Password</label>
+                <input name="password" type="password" class="form-control" id="password" placeholder="Password">
+                <?php if ($this->form->get('password')->getMessages()) : ?>
+                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    <?php foreach ($this->form->get('password')->getMessages() as $error) : ?>
+                        <span class="help-block"><?= $error ?></span>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
             <?= $this->formElement($this->form->get('csrf')) ?>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>

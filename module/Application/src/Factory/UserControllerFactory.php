@@ -25,6 +25,11 @@ class UserControllerFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        return new UserController($container->get(AuthenticationService::class), new SessionManager());
+        return new UserController(
+            $container->get(AuthenticationService::class),
+            $container->get(SessionManager::class),
+            $container->get('ContainerAuthentication'),
+            $container->get('doctrine.entitymanager.orm_default')
+        );
     }
 }
