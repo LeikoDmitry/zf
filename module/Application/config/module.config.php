@@ -76,6 +76,16 @@ return [
                     ],
                 ],
             ],
+            'reset' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/reset',
+                    'defaults' => [
+                        'controller' => Controller\UserController::class,
+                        'action'     => 'reset',
+                    ],
+                ],
+            ],
         ],
     ],
     'controllers' => [
@@ -119,7 +129,25 @@ return [
         'factories'  => [
             Navigation\BlogNavigationFactory::NAVIGATION_NAME => Navigation\BlogNavigationFactory::class,
             Service\Cache::class => Service\CacheFactory::class,
-            AuthenticationService::class => Factory\AuthenticationServiceFactory::class
+            AuthenticationService::class => Factory\AuthenticationServiceFactory::class,
+            Service\Smtp::class => Service\SmtpFactory::class
         ]
-    ]
+    ],
+    'view_helper_config' => [
+        'flashmessenger' => [
+            'message_open_format'      => '<div%s><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><ul><li>',
+            'message_close_string'     => '</li></ul></div>',
+            'message_separator_string' => '</li><li>',
+        ],
+    ],
+    'smtp_options' => [
+        'name'              => 'smtp.mailtrap.io',
+        'host'              => 'smtp.mailtrap.io',
+        'port'              => 2525,
+        'connection_class'  => 'crammd5',
+        'connection_config' => [
+            'username' => 'eae70d6312c61a',
+            'password' => '00f213d89cd10c',
+        ],
+    ],
 ];

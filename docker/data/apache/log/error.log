@@ -249,3 +249,5 @@ AH00558: apache2: Could not reliably determine the server's fully qualified doma
 [Mon May 27 09:06:18.612424 2019] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.3.5 configured -- resuming normal operations
 [Mon May 27 09:06:18.612473 2019] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
 [Mon May 27 09:10:37.008881 2019] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+[Mon Jun 17 07:20:50.456181 2019] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) PHP/7.3.5 configured -- resuming normal operations
+[Mon Jun 17 07:20:50.457442 2019] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'

@@ -31,3 +31,6 @@ div.container a.navbar-brand > img {
     margin-right: 4px;
     margin-top: -2px;
 }
+.reset-link {
+    margin-top: 20px;
+}

@@ -4,6 +4,7 @@ namespace Application\Factory;
 
 
 use Application\Controller\UserController;
+use Application\Service\Smtp;
 use Interop\Container\ContainerInterface;
 use Zend\Authentication\AuthenticationService;
 use Zend\ServiceManager\Factory\FactoryInterface;
@@ -29,7 +30,9 @@ class UserControllerFactory implements FactoryInterface
             $container->get(AuthenticationService::class),
             $container->get(SessionManager::class),
             $container->get('ContainerAuthentication'),
-            $container->get('doctrine.entitymanager.orm_default')
+            $container->get('doctrine.entitymanager.orm_default'),
+            $container->get(Smtp::class),
+            $container->get('ViewRenderer')
         );
     }
 }
