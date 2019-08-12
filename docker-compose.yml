@@ -12,12 +12,12 @@ services:
     volumes:
       - ./docker/data/mysql:/var/lib/mysql
     ports:
-      - 3306:3306
+      - 3307:3306
 
   zf:
     build: docker/apache-php
     ports:
-      - 80:80
+      - 8080:80
     volumes:
       - .:/var/www/zf
       - ./docker/html/index.php:/var/www/html/index.php
